@@ -1,33 +1,17 @@
-# Instructions for using this template
+# Software development container
 
-1. Can create an empty repository for your new project e.g. on github.
-2. Clone it to your local hdd.
-3. Download the code in this repository as a zip file (ie don't clone the code, use the code download button e.g. on github click the green button and select the download option. This will will zip the entire repository with only the latest source files). 
-4. Extract the zip into your cloned repository.
-5. Commit the extracted files to your new repository.
-
-DELETE THIS LINE AND ALL TEXT ABOVE 
-
-# Your repository name
-
-Python module for ...
 See the documentation for more information.
 
 ## Dependencies
 
 See requirements.txt for python dependencies.
-The python module named parameterized is used for testing.
 
 ## Accessing documentation
 
-The documentation is hosted on Readthedocs - add link
-
-The documentation is hosted on an ABI webserver that is accessible only within
-the university or via VPN - add link
+The documentation is hosted on Readthedocs.org - https://dev-container.readthedocs.io/
 
 ## Building documentation locally
 
-### From the terminal
 1. Clone the repository to your local machine.
 
 2. Navigate to the docs/
