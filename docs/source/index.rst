@@ -8,6 +8,7 @@ Software development container
 
 .. toctree::
    :maxdepth: 2
+   :numbered: 2
    :caption: Contents:
 
    introduction
