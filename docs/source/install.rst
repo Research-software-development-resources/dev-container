@@ -59,7 +59,7 @@ Go to your home directory and extract the zip file. For example, on linux `~` re
 .. code-block:: bash
 
   cd ~
-  wget https://research-software-development-tutorials.readthedocs.io//en/latest/_static/development-environment.zip
+  wget https://dev-container.readthedocs.io//en/latest/_static/development-environment.zip
   unzip development-environment.zip
 
 
