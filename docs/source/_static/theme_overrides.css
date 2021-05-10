@@ -12,20 +12,16 @@
    }
 }
 
-a {
-  color: #B71C1C;
-}
-
 /* Sidebar header (and topbar for mobile) */
 .wy-side-nav-search, .wy-nav-top {
-    background: #B71C1C;
+    background: #E2A227;
 }
 
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
-  color: #B71C1C;
+  color: #E2A227;
 }
 
 /* Sidebar */
 .wy-side-nav-search input[type=text] {
-  border-color: #B71C1C;
+  border-color: #E2A227;
 }
