@@ -31,5 +31,8 @@ Building and publishing Docker images to DockerHub
 4. docker login
 5. docker push researchdevresources/development-environment:1.0-tensorflow-notebook
 
+
+docker run --rm -it -e GRANT_SUDO=yes --user root researchdevresources/development-environment /bin/bash
+
 .. bibliography:: refs.bib
   :style: alpha

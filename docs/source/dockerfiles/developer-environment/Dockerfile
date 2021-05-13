@@ -62,7 +62,7 @@ USER root
 
 # Pycharm dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
-  less \
+  less libgbm-dev \
   libxtst-dev libxext-dev libxrender-dev libfreetype6-dev \
   libfontconfig1 libgtk2.0-0 libxslt1.1 libxxf86vm1 \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -82,6 +82,11 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 #----------------------------
 
 USER $NB_UID
+
+RUN pip install \
+    'sphinx' \
+    'sphinx-rtd-theme' \
+    'sphinxcontrib-bibtex'
 
 WORKDIR $HOME
 
