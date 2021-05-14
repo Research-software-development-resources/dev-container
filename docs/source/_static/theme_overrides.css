@@ -14,14 +14,14 @@
 
 /* Sidebar header (and topbar for mobile) */
 .wy-side-nav-search, .wy-nav-top {
-    background: #E2A227;
+    background: #ef476f;
 }
 
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
-  color: #E2A227;
+  color: #ef476f;
 }
 
 /* Sidebar */
 .wy-side-nav-search input[type=text] {
-  border-color: #E2A227;
+  border-color: #ef476f;
 }
