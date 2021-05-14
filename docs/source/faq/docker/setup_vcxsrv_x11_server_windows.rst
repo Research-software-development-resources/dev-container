@@ -1,7 +1,7 @@
+.. _Setup VcXsrv X11 server on Windows:
+
 Setup VcXsrv X11 server on Windows
 ==================================
-
-.. _Setup VcXsrv X11 server on Windows:
 
 The VcXsrv X11 server will be used to allow us visualise GUI programs, which are running inside the Docker container, on the host Windows machine. The following guide has been adapted from [this](https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde) link.
 

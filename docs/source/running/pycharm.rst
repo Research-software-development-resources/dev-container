@@ -9,31 +9,11 @@ Starting the container
 Windows with Docker
 ~~~~~~~~~~~~~~~~~~~
 
-1. Follow the instructions in the FAQ Docker 'Setup VcXsrv X11 server on Windows' Section.
+1. Follow the instructions in :ref:`Setup VcXsrv X11 server on Windows` in the FAQ Docker section.
 
-  .. important::
+2. Open the ``C:/Users/USER_NAME/Documents/development-environment/shortcuts`` folder (or where you have extracted the ``development-environment`` folder).
 
-    Ensure you have followed step 4 of the VcXsrv setup instructions. This step saves the IP address of your computer as an environmental variable in a PowerShell terminal. This specific step is required to be repeated each time you run PyCharm via docker.
-
-2. Run the following command in a PowerShell (don't use a standard terminal, as it does not support commands that span multiple lines):
-
-  .. code-block:: bash
-
-    docker run `
-        --rm `
-        --env DISPLAY=${env:IPAddress}:0.0 `
-        --name development-environment `
-        -it `
-        -v c/Users/${env:UserName}/Documents/development-environment/work:/home/jovyan/work `
-        -v c/Users/${env:UserName}/Documents/development-environment/usr/local:/home/jovyan/.local `
-        -v c/Users/${env:UserName}/Documents/development-environment/usr/cache:/home/jovyan/.cache `
-        -v c/Users/${env:UserName}/Documents/development-environment/usr/config:/home/jovyan/.config `
-        -v c/Users/${env:UserName}/Documents/development-environment/usr/java:/home/jovyan/.java `
-        -v c/Users/${env:UserName}/Documents/development-environment/usr/bin/:/usr/local/bin/ `
-        researchdevresources/development-environment:1.0-tensorflow-notebook start-pycharm.sh
-
-  .. important::
-    Ensure that there are no trailing spaces following the end-of-line tilda deliminators.
+3. Double click on the ``start_pycharm_from_windows.bat`` file to run the container.
 
 Linux or Mac with Docker
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,21 +76,71 @@ When the commands below are executed, PyCharm will automatically be downloaded a
 
     Ensure that there are no trailing spaces following the end of line backslash deliminators.
 
+
 Configuring PyCharm
 -------------------
-On the first run, you will need to configuring your python environment. 
 
-1. Create a new project folder and store it in the ``/home/jovyan/work/`` folder.
+On the first run, you will need to configuring your python environment. This involves selecting the Anaconda python 3.9 interpreter that has been setup within the container.
 
-2. In the interpreter section, select the existing system interpreter option and add the following path to the python interpreter:
+.. warning::
 
-  .. code-block:: bash
+  Only use the Anaconda Python 3.9 interpreter as shown below for building your software projects within the container and not the system default in ``/usr/bin/python3.8``. This is because only changes to the Anaconda Python 3.9 interpreter (e.g. installation of new libraries) will persist when the container is shutdown.
 
-    /opt/conda/bin/python
+.. note::
 
-3. Create the project.
+  Since the PyCharm and its settings are stored in a folder that is mapped to your host operating system, you will not need to repeat this setup next time you run the container.
 
-Since the PyCharm and its settings are stored in a folder that is mapped to your host operating system, you will not need to repeat this setup next time you run the container.
 
-.. seealso::
-  Go to the tips Section in the local IDE page If you are running a Docker container following the instructions below. If you are running a Singularity container then skip this information.
+New projects
+~~~~~~~~~~~~
+
+1. Create a new project folder and store it in the ``/home/jovyan/work/`` folder. e.g. ``/home/jovyan/work/my_new_project``
+
+  .. important::
+
+    This is important because only files/folders within ``/home/jovyan/work/`` are mapped to the host operating systems. Files outside of this folder will be lost when the container is shutdown.
+
+2. Select the Anaconda Python 3.9 interpreter that has been setup in the container:
+
+  1. In the :guilabel:`Python interpreter section`, select :guilabel:`Previously configured interpreter`.
+
+  2. Click the three dots next to the :guilabel:`interpreter` option.
+
+    .. figure:: pycharm_path_to_interpreter.png
+      :width: 600
+      :class: with-shadow
+      :figclass: align-center
+
+      Select path to python interpreter in PyCharm.
+
+  3. Specify the following path for the python interpreter:
+
+    .. code-block:: bash
+
+      /opt/conda/bin/python
+
+  4. Create the project.
+
+Existing projects
+~~~~~~~~~~~~~~~~~
+
+1. On your host operating system, move or clone your project into the ``development-environment/work/`` folder. e.g. ``development-environment/work/my_existing_project``. This folder will be available within the container in ``/home/jovyan/work/my_existing_project``.
+
+2. Upon running PyCharm from the container, select :guilabel:`Open` on the PyCharm landing page (or :guilabel:`File` → :guilabel:`Open`) and select your project folder e.g. ``/home/jovyan/work/my_existing_project``.
+
+3. Select the Anaconda Python 3.9 interpreter that has been setup in the container:
+
+  1. Select :guilabel:`File` → :guilabel:`Settings`.
+
+  2. Select :guilabel:`Project: my_existing_project` → :guilabel:`Python Interpreter`.
+
+  3. Click the gear icon → :guilabel:`Add` on the top right of the settings window.
+
+  4. Perform step 2 onwards from the previous ``New projects`` section.
+
+Enabling automatic saving of open files in PyCharm
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enable automatic saving of open files by following the tips suggested in the PyCharm tips section of the `research-software-development-tutorials <https://research-software-development-tutorials.readthedocs.io/en/latest/beginner/development_environments/ides.html#pycharm-tips>`_.
+
+
